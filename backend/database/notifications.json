@@ -1,0 +1,15 @@
+{
+  "notifications": [
+    {
+      "id": "ebf00211-4d27-485c-a88b-e09ec30642ee",
+      "createdAt": "2026-05-23T14:21:24.776Z",
+      "updatedAt": "2026-05-23T14:21:24.776Z",
+      "userId": "admin",
+      "title": "New Complaint",
+      "message": "New complaint filed: Road problem (SVA-260523-3334)",
+      "type": "complaint",
+      "referenceId": "bd744ba6-9082-44fd-a037-dda829b22166",
+      "isRead": false
+    }
+  ]
+}

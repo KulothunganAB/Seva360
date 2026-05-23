@@ -1,0 +1,91 @@
+{
+  "works": [
+    {
+      "id": "4bec02e6-1534-4009-b02f-ff421fe82705",
+      "title": "Adyar Main Road Resurfacing",
+      "description": "Complete resurfacing of 2.5 km stretch of Adyar Main Road with new asphalt. Includes drainage work and footpath repair.",
+      "category": "roads",
+      "ward": "Ward 12 - Adyar",
+      "address": "Adyar Main Road, Chennai - 600020",
+      "budget": 1500000,
+      "budgetSpent": 750000,
+      "startDate": "2026-05-03T13:43:02.221Z",
+      "expectedEndDate": "2026-06-02T13:43:02.221Z",
+      "completedDate": null,
+      "status": "in-progress",
+      "completionPercentage": 60,
+      "images": [],
+      "latitude": 13.0067,
+      "longitude": 80.2551,
+      "councillorId": "df5493fd-b05f-4cdd-945d-a7f86fbe6127",
+      "councillorName": "Councillor Rajesh Kumar",
+      "timeline": [
+        {
+          "id": "27897622-4b70-4ea8-97ec-2134f5a51f2a",
+          "status": "pending",
+          "message": "Project approved and funded",
+          "timestamp": "2026-04-28T13:43:02.221Z",
+          "by": "Admin"
+        },
+        {
+          "id": "aef45db6-f6ac-4206-8422-f941d2982c84",
+          "status": "in-progress",
+          "message": "Work commenced. Old road being cleared.",
+          "timestamp": "2026-05-03T13:43:02.221Z",
+          "by": "Councillor Rajesh Kumar"
+        }
+      ],
+      "citizenFeedback": [
+        {
+          "id": "c74e84e3-b73b-482e-a58d-cc9fc143ea9e",
+          "text": "Work is progressing well! Happy to see action.",
+          "rating": 4,
+          "authorId": "e910c718-15b2-4157-b939-927641bf0f01",
+          "authorName": "Priya Lakshmi",
+          "timestamp": "2026-05-18T13:43:02.221Z"
+        }
+      ],
+      "createdAt": "2026-04-28T13:43:02.221Z",
+      "updatedAt": "2026-05-23T13:43:02.221Z"
+    },
+    {
+      "id": "f8b2c50a-d6c1-471a-9d56-0034dc6def9f",
+      "title": "Adyar Park Renovation",
+      "description": "Renovation of Adyar public park including new benches, lighting, children play area, and landscaping.",
+      "category": "welfare",
+      "ward": "Ward 12 - Adyar",
+      "address": "Adyar Park, Chennai",
+      "budget": 500000,
+      "budgetSpent": 500000,
+      "startDate": "2026-04-08T13:43:02.221Z",
+      "expectedEndDate": "2026-05-18T13:43:02.221Z",
+      "completedDate": "2026-05-18T13:43:02.221Z",
+      "status": "completed",
+      "completionPercentage": 100,
+      "images": [],
+      "latitude": 13.002,
+      "longitude": 80.254,
+      "councillorId": "df5493fd-b05f-4cdd-945d-a7f86fbe6127",
+      "councillorName": "Councillor Rajesh Kumar",
+      "timeline": [
+        {
+          "id": "972f5773-76b9-460e-a750-1ea517a12ccc",
+          "status": "pending",
+          "message": "Project initiated",
+          "timestamp": "2026-04-03T13:43:02.221Z",
+          "by": "Admin"
+        },
+        {
+          "id": "a44dff9d-ceb5-4966-b8f4-dbb263e01ab8",
+          "status": "completed",
+          "message": "Park fully renovated and opened to public",
+          "timestamp": "2026-05-18T13:43:02.221Z",
+          "by": "Councillor Rajesh Kumar"
+        }
+      ],
+      "citizenFeedback": [],
+      "createdAt": "2026-04-03T13:43:02.221Z",
+      "updatedAt": "2026-05-18T13:43:02.221Z"
+    }
+  ]
+}

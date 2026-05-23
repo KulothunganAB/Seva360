@@ -1,0 +1,57 @@
+{
+  "volunteers": [
+    {
+      "id": "2873831c-524e-4716-96f1-40b391860a89",
+      "userId": "a93eaed9-5e73-4e7e-bf6a-1e95bf474ea8",
+      "name": "Kavitha Raman",
+      "email": "volunteer@seva360.in",
+      "phone": "9876543214",
+      "district": "Chennai",
+      "skills": [
+        "First Aid",
+        "Event Coordination",
+        "Data Entry"
+      ],
+      "availability": "weekends",
+      "bio": "Passionate about community service and social welfare.",
+      "status": "approved",
+      "points": 150,
+      "eventsAttended": [],
+      "tasksCompleted": [],
+      "badges": [
+        "Green Star",
+        "Community Champion"
+      ],
+      "membershipId": "VOL-KAVITHA01",
+      "qrCode": "",
+      "joinedAt": "2026-05-03T13:43:02.221Z",
+      "createdAt": "2026-05-03T13:43:02.221Z",
+      "updatedAt": "2026-05-23T13:43:02.221Z"
+    },
+    {
+      "id": "7d146302-eff7-4fdc-bc34-2e49533aaa7e",
+      "userId": "b7e9c1a1-fd14-4897-aa61-35eb1d525e95",
+      "name": "Arjun Murugan",
+      "email": "arjun@seva360.in",
+      "phone": "9876543213",
+      "district": "Chennai",
+      "skills": [
+        "Teaching",
+        "Social Media",
+        "Photography"
+      ],
+      "availability": "daily",
+      "bio": "Youth activist passionate about civic tech and governance transparency.",
+      "status": "pending",
+      "points": 0,
+      "eventsAttended": [],
+      "tasksCompleted": [],
+      "badges": [],
+      "membershipId": "VOL-ARJUN001",
+      "qrCode": "",
+      "joinedAt": "2026-05-18T13:43:02.221Z",
+      "createdAt": "2026-05-18T13:43:02.221Z",
+      "updatedAt": "2026-05-23T13:43:02.221Z"
+    }
+  ]
+}

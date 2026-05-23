@@ -1,0 +1,46 @@
+{
+  "announcements": [
+    {
+      "id": "a483e86b-5074-4c90-ada8-e37df96ea8fe",
+      "title": "Water Supply Maintenance - 25th May",
+      "content": "Water supply will be interrupted from 9 AM to 5 PM on 25th May 2026 for maintenance of main pipeline in Adyar and T Nagar areas.",
+      "targetRole": "all",
+      "district": "Chennai",
+      "priority": "high",
+      "isActive": true,
+      "createdBy": "687dbcd8-d760-4965-9274-5c71108f90fe",
+      "createdByName": "Admin Seva360",
+      "views": 145,
+      "createdAt": "2026-05-21T13:43:02.226Z",
+      "updatedAt": "2026-05-23T13:43:02.226Z"
+    },
+    {
+      "id": "80cb35bc-9c51-46d3-9b4e-7787c64f785c",
+      "title": "Property Tax Due Date Extended",
+      "content": "The due date for property tax payment for the year 2026-27 has been extended to 30th June 2026. Citizens can pay online at tnmunicipal.org.",
+      "targetRole": "citizen",
+      "district": "all",
+      "priority": "normal",
+      "isActive": true,
+      "createdBy": "687dbcd8-d760-4965-9274-5c71108f90fe",
+      "createdByName": "Admin Seva360",
+      "views": 892,
+      "createdAt": "2026-05-18T13:43:02.226Z",
+      "updatedAt": "2026-05-23T13:43:02.226Z"
+    },
+    {
+      "id": "cdfeada1-f399-404c-8475-05c8395681ac",
+      "title": "Volunteer Orientation Program - June 1st",
+      "content": "All newly approved volunteers are requested to attend the orientation program on June 1st, 2026 at District Collectorate, 10 AM.",
+      "targetRole": "volunteer",
+      "district": "Chennai",
+      "priority": "normal",
+      "isActive": true,
+      "createdBy": "687dbcd8-d760-4965-9274-5c71108f90fe",
+      "createdByName": "Admin Seva360",
+      "views": 67,
+      "createdAt": "2026-05-22T13:43:02.226Z",
+      "updatedAt": "2026-05-23T13:43:02.226Z"
+    }
+  ]
+}

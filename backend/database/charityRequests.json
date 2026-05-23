@@ -1,0 +1,89 @@
+{
+  "charityRequests": [
+    {
+      "id": "5ddaa5a1-6248-4131-aa6f-c74251233408",
+      "title": "Blood Donation Camp - Critical Need",
+      "description": "Urgent need for O+ and AB- blood at Govt General Hospital. Multiple accident victims need blood.",
+      "type": "blood-donation",
+      "targetAmount": 0,
+      "collectedAmount": 0,
+      "beneficiary": "Govt General Hospital Patients",
+      "district": "Chennai",
+      "urgency": "urgent",
+      "status": "active",
+      "images": [],
+      "participants": [
+        {
+          "userId": "a93eaed9-5e73-4e7e-bf6a-1e95bf474ea8",
+          "name": "Kavitha Raman",
+          "role": "volunteer",
+          "joinedAt": "2026-05-22T13:43:02.224Z"
+        }
+      ],
+      "donors": [],
+      "createdBy": "687dbcd8-d760-4965-9274-5c71108f90fe",
+      "createdByName": "Admin Seva360",
+      "approvedBy": "687dbcd8-d760-4965-9274-5c71108f90fe",
+      "createdAt": "2026-05-20T13:43:02.224Z",
+      "updatedAt": "2026-05-23T13:43:02.224Z"
+    },
+    {
+      "id": "a3d55c37-ab9a-449d-bfe3-032f76deeb9e",
+      "title": "Scholarship Fund - Merit Students 2024",
+      "description": "Financial assistance for 50 merit students from economically weak families pursuing higher education.",
+      "type": "scholarship",
+      "targetAmount": 500000,
+      "collectedAmount": 175000,
+      "beneficiary": "50 Merit Students",
+      "district": "Chennai",
+      "urgency": "normal",
+      "status": "active",
+      "images": [],
+      "participants": [],
+      "donors": [
+        {
+          "donorId": "e910c718-15b2-4157-b939-927641bf0f01",
+          "name": "Priya Lakshmi",
+          "amount": 5000
+        },
+        {
+          "donorId": "b7e9c1a1-fd14-4897-aa61-35eb1d525e95",
+          "name": "Arjun Murugan",
+          "amount": 2000
+        }
+      ],
+      "createdBy": "687dbcd8-d760-4965-9274-5c71108f90fe",
+      "createdByName": "Admin Seva360",
+      "approvedBy": "687dbcd8-d760-4965-9274-5c71108f90fe",
+      "createdAt": "2026-05-08T13:43:02.224Z",
+      "updatedAt": "2026-05-23T13:43:02.224Z"
+    },
+    {
+      "id": "ae8a328e-debd-4e49-b011-227f9fdbd5eb",
+      "title": "Food Distribution - Flood Affected Families",
+      "description": "Distributing food packages to 200 families affected by recent flooding in North Chennai.",
+      "type": "food-distribution",
+      "targetAmount": 100000,
+      "collectedAmount": 100000,
+      "beneficiary": "200 Flood-Affected Families",
+      "district": "Chennai",
+      "urgency": "urgent",
+      "status": "completed",
+      "images": [],
+      "participants": [
+        {
+          "userId": "a93eaed9-5e73-4e7e-bf6a-1e95bf474ea8",
+          "name": "Kavitha Raman",
+          "role": "volunteer",
+          "joinedAt": "2026-05-13T13:43:02.224Z"
+        }
+      ],
+      "donors": [],
+      "createdBy": "df5493fd-b05f-4cdd-945d-a7f86fbe6127",
+      "createdByName": "Councillor Rajesh Kumar",
+      "approvedBy": "687dbcd8-d760-4965-9274-5c71108f90fe",
+      "createdAt": "2026-05-03T13:43:02.224Z",
+      "updatedAt": "2026-05-18T13:43:02.224Z"
+    }
+  ]
+}

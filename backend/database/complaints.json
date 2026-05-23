@@ -1,0 +1,162 @@
+{
+  "complaints": [
+    {
+      "id": "6645a40f-f5bd-46ad-b53b-3a5ae10be998",
+      "ticketNumber": "SVA-260513-1002",
+      "title": "No water supply for 3 days",
+      "description": "Our entire street has not received water supply for the past 3 days. Residents are suffering especially elderly people.",
+      "category": "water",
+      "priority": "critical",
+      "status": "open",
+      "ward": "Ward 15 - T Nagar",
+      "address": "Pondy Bazaar North, T Nagar, Chennai",
+      "latitude": 13.0418,
+      "longitude": 80.2341,
+      "images": [],
+      "citizenId": "b7e9c1a1-fd14-4897-aa61-35eb1d525e95",
+      "citizenName": "Arjun Murugan",
+      "assignedTo": null,
+      "assignedCouncillorId": null,
+      "comments": [],
+      "timeline": [
+        {
+          "id": "a6a9d70f-5f56-4986-aa61-6b2afe42bf6d",
+          "status": "open",
+          "message": "Complaint submitted",
+          "timestamp": "2026-05-21T13:43:02.219Z",
+          "by": "Arjun Murugan"
+        }
+      ],
+      "rating": null,
+      "ratingComment": "",
+      "createdAt": "2026-05-21T13:43:02.219Z",
+      "updatedAt": "2026-05-23T13:43:02.219Z"
+    },
+    {
+      "id": "7defb799-5fdc-43c0-b7c0-3824cdb191f4",
+      "ticketNumber": "SVA-260512-1001",
+      "title": "Broken Road near Adyar Signal",
+      "description": "The main road near Adyar traffic signal has large potholes causing accidents. Multiple vehicles have been damaged.",
+      "category": "roads",
+      "priority": "high",
+      "status": "in-progress",
+      "ward": "Ward 12 - Adyar",
+      "address": "Adyar Signal, Chennai - 600020",
+      "latitude": 13.0067,
+      "longitude": 80.2551,
+      "images": [],
+      "citizenId": "e910c718-15b2-4157-b939-927641bf0f01",
+      "citizenName": "Priya Lakshmi",
+      "assignedTo": "Councillor Rajesh Kumar",
+      "assignedCouncillorId": "df5493fd-b05f-4cdd-945d-a7f86fbe6127",
+      "comments": [
+        {
+          "id": "9312823f-4313-410d-90e0-0f276d031519",
+          "text": "Thank you for reporting. Our team will inspect the site within 48 hours.",
+          "authorId": "df5493fd-b05f-4cdd-945d-a7f86fbe6127",
+          "authorName": "Councillor Rajesh Kumar",
+          "authorRole": "councillor",
+          "timestamp": "2026-05-22T13:43:02.219Z"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "a5267135-988c-4f9d-a8f0-c2b65f47522a",
+          "status": "open",
+          "message": "Complaint submitted",
+          "timestamp": "2026-05-18T13:43:02.219Z",
+          "by": "Priya Lakshmi"
+        },
+        {
+          "id": "7cbd3cf2-5c04-46f6-bbeb-971656d434db",
+          "status": "in-progress",
+          "message": "Assigned to Councillor Rajesh Kumar",
+          "timestamp": "2026-05-20T13:43:02.219Z",
+          "by": "Admin"
+        }
+      ],
+      "rating": null,
+      "ratingComment": "",
+      "createdAt": "2026-05-18T13:43:02.219Z",
+      "updatedAt": "2026-05-23T13:43:02.219Z"
+    },
+    {
+      "id": "29fa5208-0fb0-4fe0-9003-81cf1549b8af",
+      "ticketNumber": "SVA-260510-1003",
+      "title": "Street lights not working - safety concern",
+      "description": "5 street lights on our road are not working for 2 weeks. Women and elderly feel unsafe at night.",
+      "category": "electricity",
+      "priority": "medium",
+      "status": "resolved",
+      "ward": "Ward 12 - Adyar",
+      "address": "Gandhi Nagar Street 3, Adyar",
+      "latitude": 13.0048,
+      "longitude": 80.253,
+      "images": [],
+      "citizenId": "e910c718-15b2-4157-b939-927641bf0f01",
+      "citizenName": "Priya Lakshmi",
+      "assignedTo": "Councillor Rajesh Kumar",
+      "assignedCouncillorId": "df5493fd-b05f-4cdd-945d-a7f86fbe6127",
+      "comments": [],
+      "timeline": [
+        {
+          "id": "ad659cef-e448-4a5b-9e5d-cf33975e1cb7",
+          "status": "open",
+          "message": "Complaint submitted",
+          "timestamp": "2026-05-13T13:43:02.219Z",
+          "by": "Priya Lakshmi"
+        },
+        {
+          "id": "f5b0910f-3177-4993-9172-d024bb4e4f8c",
+          "status": "in-progress",
+          "message": "TANGEDCO team dispatched",
+          "timestamp": "2026-05-16T13:43:02.219Z",
+          "by": "Councillor Rajesh Kumar"
+        },
+        {
+          "id": "dde780ea-11df-4280-879f-42a9ed0f53df",
+          "status": "resolved",
+          "message": "All lights repaired and functional",
+          "timestamp": "2026-05-20T13:43:02.219Z",
+          "by": "Councillor Rajesh Kumar"
+        }
+      ],
+      "rating": 4,
+      "ratingComment": "Good response! Happy with the resolution.",
+      "createdAt": "2026-05-13T13:43:02.219Z",
+      "updatedAt": "2026-05-20T13:43:02.219Z"
+    },
+    {
+      "id": "bd744ba6-9082-44fd-a037-dda829b22166",
+      "createdAt": "2026-05-23T14:21:24.775Z",
+      "updatedAt": "2026-05-23T14:21:24.775Z",
+      "ticketNumber": "SVA-260523-3334",
+      "title": "Road problem",
+      "description": "holes in the road",
+      "category": "roads",
+      "priority": "medium",
+      "status": "open",
+      "ward": "21",
+      "address": "",
+      "latitude": null,
+      "longitude": null,
+      "images": [],
+      "citizenId": "d4768c71-312a-493e-b3a2-5751af81efd6",
+      "citizenName": "Kulothungan A B",
+      "assignedTo": null,
+      "assignedCouncillorId": null,
+      "comments": [],
+      "timeline": [
+        {
+          "id": "fe526757-1b99-405c-91c8-ba55e7dc6ae6",
+          "status": "open",
+          "message": "Complaint submitted and registered",
+          "timestamp": "2026-05-23T14:21:24.775Z",
+          "by": "Kulothungan A B"
+        }
+      ],
+      "rating": null,
+      "ratingComment": ""
+    }
+  ]
+}

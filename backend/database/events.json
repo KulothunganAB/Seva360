@@ -1,0 +1,71 @@
+{
+  "events": [
+    {
+      "id": "9c6faec6-c9b2-493b-a41e-bb787d879e00",
+      "title": "Tree Planting Campaign - Green Chennai",
+      "description": "Plant trees across Ward 12 to improve the green cover and fight urban heat. 500 saplings ready for planting.",
+      "date": "2026-05-18T13:43:02.222Z",
+      "location": "Ward 12 - Multiple Locations, Adyar",
+      "district": "Chennai",
+      "eventType": "environment",
+      "maxParticipants": 100,
+      "participants": [
+        "a93eaed9-5e73-4e7e-bf6a-1e95bf474ea8",
+        "b7e9c1a1-fd14-4897-aa61-35eb1d525e95"
+      ],
+      "attendees": [
+        "a93eaed9-5e73-4e7e-bf6a-1e95bf474ea8"
+      ],
+      "rewards": 20,
+      "status": "completed",
+      "createdBy": "687dbcd8-d760-4965-9274-5c71108f90fe",
+      "createdByName": "Admin Seva360",
+      "images": [],
+      "createdAt": "2026-05-08T13:43:02.222Z",
+      "updatedAt": "2026-05-18T13:43:02.222Z"
+    },
+    {
+      "id": "b76e1ba0-44d0-41d7-ac8d-ded1921ae774",
+      "title": "Beach Cleanup Drive - Marina",
+      "description": "Join us for a community beach cleanup drive at Marina Beach. Let us keep Chennai clean!",
+      "date": "2026-05-30T13:43:02.222Z",
+      "location": "Marina Beach, Lighthouse End, Chennai",
+      "district": "Chennai",
+      "eventType": "cleanup",
+      "maxParticipants": 200,
+      "participants": [
+        "a93eaed9-5e73-4e7e-bf6a-1e95bf474ea8",
+        "d4768c71-312a-493e-b3a2-5751af81efd6"
+      ],
+      "attendees": [],
+      "rewards": 25,
+      "status": "upcoming",
+      "createdBy": "687dbcd8-d760-4965-9274-5c71108f90fe",
+      "createdByName": "Admin Seva360",
+      "images": [],
+      "createdAt": "2026-05-20T13:43:02.222Z",
+      "updatedAt": "2026-05-23T14:20:21.088Z"
+    },
+    {
+      "id": "026c16e2-2a96-48d1-bb92-55001a561380",
+      "title": "Free Health Camp - Blood Pressure & Diabetes Check",
+      "description": "Free health screening camp for blood pressure, diabetes and general checkup. Doctors from Govt Hospital participating.",
+      "date": "2026-06-06T13:43:02.222Z",
+      "location": "Adyar Community Hall, Chennai",
+      "district": "Chennai",
+      "eventType": "medical-camp",
+      "maxParticipants": 500,
+      "participants": [
+        "d4768c71-312a-493e-b3a2-5751af81efd6"
+      ],
+      "attendees": [],
+      "rewards": 30,
+      "status": "upcoming",
+      "createdBy": "df5493fd-b05f-4cdd-945d-a7f86fbe6127",
+      "createdByName": "Councillor Rajesh Kumar",
+      "images": [],
+      "createdAt": "2026-05-21T13:43:02.222Z",
+      "updatedAt": "2026-05-23T14:20:25.421Z"
+    }
+  ]
+}
