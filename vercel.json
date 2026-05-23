@@ -11,16 +11,8 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "https://seva360-api.onrender.com/api/$1"
-    },
-    {
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ],
-  "env": {
-    "VITE_API_URL": "@seva360_api_url",
-    "VITE_SOCKET_URL": "@seva360_socket_url"
-  }
+  ]
 }
