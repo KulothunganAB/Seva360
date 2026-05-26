@@ -9,7 +9,7 @@ const { authenticate, authorize } = require('../middleware/auth');
 router.get('/', authenticate, getComplaints);
 router.get('/:id', authenticate, getComplaintById);
 router.post('/', authenticate, createComplaint);
-router.put('/:id/status', authenticate, authorize('admin', 'councillor'), updateComplaintStatus);
+router.put('/:id/status', authenticate, authorize('admin'), updateComplaintStatus);
 router.post('/:id/comments', authenticate, addComment);
 router.post('/:id/rate', authenticate, authorize('citizen'), rateComplaint);
 router.delete('/:id', authenticate, deleteComplaint);

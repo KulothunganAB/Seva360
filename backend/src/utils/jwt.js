@@ -43,6 +43,7 @@ const generateTokens = (user) => {
     email: user.email,
     role: user.role,
     name: user.name,
+    district: user.district || '',
   };
   
   return {

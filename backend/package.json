@@ -2,11 +2,11 @@
   "name": "seva360-backend",
   "version": "1.0.0",
   "description": "Seva360 Smart Governance Platform - Backend API",
-  "main": "src/index.js",
+  "main": "server.js",
   "type": "commonjs",
   "scripts": {
-    "dev": "nodemon --ignore database/ --ignore uploads/ src/index.js",
-    "start": "node src/index.js",
+    "dev": "nodemon --ignore database/ --ignore uploads/ server.js",
+    "start": "node server.js",
     "seed": "node src/database/seed.js",
     "test": "echo \"No tests specified\" && exit 0"
   },

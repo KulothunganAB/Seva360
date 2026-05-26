@@ -1,5 +1,6 @@
 const { charityRequestsDb, donationsDb, notificationsDb } = require('../database/db');
 const { create, getById, getAll, update, remove } = require('../utils/crud');
+const { filterByUserDistrict, assertAdminDistrict } = require('../utils/district');
 const response = require('../utils/response');
 const { v4: uuidv4 } = require('uuid');
 
@@ -13,7 +14,8 @@ const getCampaigns = (req, res) => {
     
     if (type) campaigns = campaigns.filter(c => c.type === type);
     if (status) campaigns = campaigns.filter(c => c.status === status);
-    
+    if (req.user) campaigns = filterByUserDistrict(campaigns, req.user);
+
     campaigns = campaigns.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
     
     const total = campaigns.length;
@@ -53,14 +55,21 @@ const createCampaign = (req, res) => {
       return response.badRequest(res, 'Title and type are required');
     }
     
+    const campaignDistrict = district || req.user.district || 'Chennai';
+    if (!assertAdminDistrict(req.user, campaignDistrict)) {
+      return response.forbidden(res, 'You can only create campaigns in your assigned district');
+    }
+
     const campaign = create(charityRequestsDb, 'charityRequests', {
       title,
       description: description || '',
-      type, // blood-donation, medical-camp, food-distribution, scholarship, disaster-relief, welfare
+      type,
       targetAmount: Number(targetAmount) || 0,
       collectedAmount: 0,
       beneficiary: beneficiary || '',
-      district: district || 'Chennai',
+      district: campaignDistrict,
+      latitude: req.body.latitude ? Number(req.body.latitude) : null,
+      longitude: req.body.longitude ? Number(req.body.longitude) : null,
       urgency: urgency || 'normal',
       status: 'active',
       images,

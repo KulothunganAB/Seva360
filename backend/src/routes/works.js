@@ -5,8 +5,8 @@ const { authenticate, authorize, optionalAuth } = require('../middleware/auth');
 
 router.get('/', optionalAuth, getWorks);
 router.get('/:id', optionalAuth, getWorkById);
-router.post('/', authenticate, authorize('admin', 'councillor'), createWork);
-router.put('/:id', authenticate, authorize('admin', 'councillor'), updateWork);
+router.post('/', authenticate, authorize('admin'), createWork);
+router.put('/:id', authenticate, authorize('admin'), updateWork);
 router.post('/:id/feedback', authenticate, addWorkFeedback);
 router.delete('/:id', authenticate, authorize('admin'), deleteWork);
 

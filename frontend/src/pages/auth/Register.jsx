@@ -2,11 +2,14 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { FiUser, FiMail, FiLock, FiPhone, FiEye, FiEyeOff, FiUserPlus } from 'react-icons/fi';
 import { registerUser, clearError } from '../../store/slices/authSlice';
+import { setLanguage } from '../../i18n';
 import toast from 'react-hot-toast';
 
 const Register = () => {
+  const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { loading, error } = useSelector(state => state.auth);
@@ -18,7 +21,6 @@ const Register = () => {
     phone: '',
     password: '',
     confirmPassword: '',
-    role: 'citizen',
     ward: '',
     district: 'Chennai',
     address: '',
@@ -42,47 +44,42 @@ const Register = () => {
     }
     
     const { confirmPassword, ...registrationData } = formData;
-    const result = await dispatch(registerUser(registrationData));
+    const result = await dispatch(registerUser({ ...registrationData, role: 'citizen' }));
     
     if (registerUser.fulfilled.match(result)) {
-      const role = result.payload.user.role;
-      const dashboards = { admin: '/admin', councillor: '/councillor', citizen: '/citizen', volunteer: '/volunteer' };
-      toast.success('Registration successful! Welcome to Seva360.');
-      navigate(dashboards[role] || '/citizen', { replace: true });
+      toast.success('Registration successful!');
+      navigate('/citizen', { replace: true });
     } else {
       toast.error(result.payload || 'Registration failed');
     }
   };
   
-  const districts = ['Chennai', 'Coimbatore', 'Madurai', 'Tiruchirappalli', 'Salem', 'Tirunelveli', 'Erode', 'Tiruppur', 'Vellore', 'Thoothukudi'];
+  const districts = ['Chennai', 'Coimbatore', 'Madurai', 'Tiruchirappalli', 'Salem'];
   
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="text-center mb-6">
-        <div className="w-14 h-14 bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg">
-          <span className="text-white font-bold text-2xl font-poppins">S</span>
+    <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }}>
+      <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-xl shadow-slate-200/60 dark:shadow-none border border-slate-200/80 dark:border-slate-800 overflow-hidden">
+        <div className="px-8 pt-8 pb-5 text-center border-b border-slate-100 dark:border-slate-800">
+          <div className="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center mx-auto mb-3">
+            <span className="text-white font-bold text-xl font-poppins">S</span>
+          </div>
+          <h1 className="text-xl font-semibold text-slate-900 dark:text-white font-poppins">{t('joinSeva360')}</h1>
+          <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">{t('citizenAccount')}</p>
         </div>
-        <h1 className="text-2xl font-bold text-white font-poppins">Join Seva360</h1>
-        <p className="text-dark-400 text-sm mt-1">Create your citizen account</p>
-      </div>
-      
-      <div className="glassmorphism rounded-2xl p-8 shadow-2xl">
+
+        <div className="px-8 py-6">
         <form onSubmit={handleSubmit} className="space-y-4" id="register-form">
           <div className="grid grid-cols-2 gap-4">
             <div className="col-span-2">
-              <label className="block text-sm text-dark-300 mb-1.5 font-medium" htmlFor="reg-name">Full Name</label>
+              <label className="label" htmlFor="reg-name">{t('fullName')}</label>
               <div className="relative">
-                <FiUser className="absolute left-3 top-1/2 -translate-y-1/2 text-dark-400 w-4 h-4" />
+                <FiUser className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
                 <input
                   id="reg-name"
                   type="text"
                   name="name"
                   placeholder="Your full name"
-                  className="w-full bg-dark-800/50 border border-dark-600 text-white placeholder-dark-500 rounded-lg px-4 py-2.5 pl-10 focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm"
+                  className="input pl-10"
                   value={formData.name}
                   onChange={handleChange}
                   required
@@ -91,15 +88,15 @@ const Register = () => {
             </div>
             
             <div className="col-span-2">
-              <label className="block text-sm text-dark-300 mb-1.5 font-medium" htmlFor="reg-email">Email</label>
+              <label className="label" htmlFor="reg-email">{t('email')}</label>
               <div className="relative">
-                <FiMail className="absolute left-3 top-1/2 -translate-y-1/2 text-dark-400 w-4 h-4" />
+                <FiMail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
                 <input
                   id="reg-email"
                   type="email"
                   name="email"
                   placeholder="your@email.com"
-                  className="w-full bg-dark-800/50 border border-dark-600 text-white placeholder-dark-500 rounded-lg px-4 py-2.5 pl-10 focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm"
+                  className="input pl-10"
                   value={formData.email}
                   onChange={handleChange}
                   required
@@ -108,15 +105,15 @@ const Register = () => {
             </div>
             
             <div>
-              <label className="block text-sm text-dark-300 mb-1.5 font-medium" htmlFor="reg-phone">Phone</label>
+              <label className="label" htmlFor="reg-phone">{t('phone')}</label>
               <div className="relative">
-                <FiPhone className="absolute left-3 top-1/2 -translate-y-1/2 text-dark-400 w-4 h-4" />
+                <FiPhone className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
                 <input
                   id="reg-phone"
                   type="tel"
                   name="phone"
                   placeholder="98765XXXXX"
-                  className="w-full bg-dark-800/50 border border-dark-600 text-white placeholder-dark-500 rounded-lg px-4 py-2.5 pl-10 focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm"
+                  className="input pl-10"
                   value={formData.phone}
                   onChange={handleChange}
                 />
@@ -124,25 +121,11 @@ const Register = () => {
             </div>
             
             <div>
-              <label className="block text-sm text-dark-300 mb-1.5 font-medium" htmlFor="reg-role">Register As</label>
-              <select
-                id="reg-role"
-                name="role"
-                className="w-full bg-dark-800/50 border border-dark-600 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm"
-                value={formData.role}
-                onChange={handleChange}
-              >
-                <option value="citizen">Citizen</option>
-                <option value="volunteer">Volunteer</option>
-              </select>
-            </div>
-            
-            <div>
-              <label className="block text-sm text-dark-300 mb-1.5 font-medium" htmlFor="reg-district">District</label>
+              <label className="label" htmlFor="reg-district">{t('district')}</label>
               <select
                 id="reg-district"
                 name="district"
-                className="w-full bg-dark-800/50 border border-dark-600 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm"
+                className="input"
                 value={formData.district}
                 onChange={handleChange}
               >
@@ -151,28 +134,28 @@ const Register = () => {
             </div>
             
             <div>
-              <label className="block text-sm text-dark-300 mb-1.5 font-medium" htmlFor="reg-ward">Ward</label>
+              <label className="label" htmlFor="reg-ward">{t('ward')}</label>
               <input
                 id="reg-ward"
                 type="text"
                 name="ward"
                 placeholder="e.g. Ward 12"
-                className="w-full bg-dark-800/50 border border-dark-600 text-white placeholder-dark-500 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm"
+                className="input"
                 value={formData.ward}
                 onChange={handleChange}
               />
             </div>
             
             <div>
-              <label className="block text-sm text-dark-300 mb-1.5 font-medium" htmlFor="reg-password">Password</label>
+              <label className="label" htmlFor="reg-password">{t('password')}</label>
               <div className="relative">
-                <FiLock className="absolute left-3 top-1/2 -translate-y-1/2 text-dark-400 w-4 h-4" />
+                <FiLock className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
                 <input
                   id="reg-password"
                   type={showPassword ? 'text' : 'password'}
                   name="password"
                   placeholder="Min 6 characters"
-                  className="w-full bg-dark-800/50 border border-dark-600 text-white placeholder-dark-500 rounded-lg px-4 py-2.5 pl-10 pr-10 focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm"
+                  className="input pl-10 pr-10"
                   value={formData.password}
                   onChange={handleChange}
                   required
@@ -180,7 +163,7 @@ const Register = () => {
                 />
                 <button
                   type="button"
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-dark-400"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? <FiEyeOff className="w-4 h-4" /> : <FiEye className="w-4 h-4" />}
@@ -189,15 +172,15 @@ const Register = () => {
             </div>
             
             <div>
-              <label className="block text-sm text-dark-300 mb-1.5 font-medium" htmlFor="reg-confirm">Confirm Password</label>
+              <label className="label" htmlFor="reg-confirm">Confirm {t('password')}</label>
               <div className="relative">
-                <FiLock className="absolute left-3 top-1/2 -translate-y-1/2 text-dark-400 w-4 h-4" />
+                <FiLock className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
                 <input
                   id="reg-confirm"
                   type={showPassword ? 'text' : 'password'}
                   name="confirmPassword"
                   placeholder="Repeat password"
-                  className="w-full bg-dark-800/50 border border-dark-600 text-white placeholder-dark-500 rounded-lg px-4 py-2.5 pl-10 focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm"
+                  className="input pl-10"
                   value={formData.confirmPassword}
                   onChange={handleChange}
                   required
@@ -207,37 +190,23 @@ const Register = () => {
           </div>
           
           {error && (
-            <div className="p-3 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-sm">
+            <div className="p-3 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50 rounded-lg text-red-700 dark:text-red-300 text-sm">
               {error}
             </div>
           )}
           
-          <button
-            type="submit"
-            id="register-submit"
-            disabled={loading}
-            className="w-full bg-gradient-to-r from-primary-700 to-primary-600 hover:from-primary-600 hover:to-primary-500 text-white font-semibold py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg active:scale-95 disabled:opacity-60"
-          >
-            {loading ? (
-              <>
-                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                Creating account...
-              </>
-            ) : (
-              <>
-                <FiUserPlus className="w-4 h-4" />
-                Create Account
-              </>
-            )}
+          <button type="submit" id="register-submit" disabled={loading} className="btn btn-primary w-full py-3">
+            {loading ? t('loading') : (<><FiUserPlus className="w-4 h-4" />{t('createAccount')}</>)}
           </button>
         </form>
         
-        <p className="text-center text-sm text-dark-400 mt-4">
-          Already have an account?{' '}
-          <Link to="/login" className="text-primary-400 hover:text-primary-300 font-medium" id="login-link">
-            Sign in
+        <p className="text-center text-sm text-slate-500 dark:text-slate-400 mt-4">
+          {t('hasAccount')}{' '}
+          <Link to="/login" className="text-primary-600 hover:text-primary-700 dark:text-primary-400 font-semibold" id="login-link">
+            {t('signIn')}
           </Link>
         </p>
+        </div>
       </div>
     </motion.div>
   );

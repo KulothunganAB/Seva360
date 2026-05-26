@@ -15,7 +15,7 @@ const fs = require('fs');
 const authRoutes = require('./routes/auth');
 const complaintRoutes = require('./routes/complaints');
 const worksRoutes = require('./routes/works');
-const volunteerRoutes = require('./routes/volunteers');
+const eventsRoutes = require('./routes/events');
 const charityRoutes = require('./routes/charity');
 const adminRoutes = require('./routes/admin');
 
@@ -95,7 +95,7 @@ app.get('/health', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/complaints', complaintRoutes);
 app.use('/api/works', worksRoutes);
-app.use('/api/volunteers', volunteerRoutes);
+app.use('/api/events', eventsRoutes);
 app.use('/api/charity', charityRoutes);
 app.use('/api/admin', adminRoutes);
 

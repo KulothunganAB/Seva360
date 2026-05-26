@@ -6,7 +6,7 @@ import Navbar from '../components/common/Navbar';
 import Sidebar from '../components/common/Sidebar';
 import { setTheme } from '../store/slices/uiSlice';
 import { setNotifications } from '../store/slices/uiSlice';
-import { initSocket } from '../services/socket';
+import { initSocket, joinRoom } from '../services/socket';
 import { addNotification } from '../store/slices/uiSlice';
 import api from '../services/api';
 
@@ -28,6 +28,7 @@ const DashboardLayout = () => {
   useEffect(() => {
     if (user?.id) {
       const socket = initSocket(user.id);
+      if (user.district) joinRoom(user.district);
       
       socket.on('newAnnouncement', (data) => {
         dispatch(addNotification({
@@ -74,7 +75,7 @@ const DashboardLayout = () => {
   }, [user]);
   
   return (
-    <div className="flex h-screen bg-gray-50 dark:bg-dark-950 overflow-hidden">
+    <div className="flex h-screen bg-blue-50/50 dark:bg-black overflow-hidden">
       <Sidebar />
       
       <div className="flex-1 flex flex-col lg:ml-64 overflow-hidden">

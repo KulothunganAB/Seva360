@@ -52,6 +52,27 @@
       "joinedAt": "2026-05-18T13:43:02.221Z",
       "createdAt": "2026-05-18T13:43:02.221Z",
       "updatedAt": "2026-05-23T13:43:02.221Z"
+    },
+    {
+      "id": "b2e5593e-b20c-4b2a-8ca2-318afea36cef",
+      "createdAt": "2026-05-26T07:40:40.147Z",
+      "updatedAt": "2026-05-26T07:40:40.147Z",
+      "userId": "687dbcd8-d760-4965-9274-5c71108f90fe",
+      "name": "Admin Seva360",
+      "email": "admin@seva360.in",
+      "phone": "9876543210",
+      "district": "Chennai",
+      "skills": [],
+      "availability": "weekends",
+      "bio": "",
+      "status": "pending",
+      "points": 0,
+      "eventsAttended": [],
+      "tasksCompleted": [],
+      "badges": [],
+      "membershipId": "VOL-EDA633D2",
+      "qrCode": "data:image/png;base64,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",
+      "joinedAt": "2026-05-26T07:40:40.147Z"
     }
   ]
 }

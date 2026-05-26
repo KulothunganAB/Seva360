@@ -1,5 +1,6 @@
 const { complaintsDb, notificationsDb, usersDb } = require('../database/db');
 const { create, getById, getAll, update, remove, paginate, search } = require('../utils/crud');
+const { filterByUserDistrict } = require('../utils/district');
 const response = require('../utils/response');
 const { v4: uuidv4 } = require('uuid');
 
@@ -24,9 +25,10 @@ const getComplaints = (req, res) => {
     
     let complaints = getAll(complaintsDb, 'complaints');
     
-    // Role-based filtering
     if (req.user.role === 'citizen') {
       complaints = complaints.filter(c => c.citizenId === req.user.id);
+    } else if (req.user.role === 'admin') {
+      complaints = filterByUserDistrict(complaints, req.user);
     }
     
     // Apply filters

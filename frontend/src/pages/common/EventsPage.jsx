@@ -15,7 +15,7 @@ const EventsPage = () => {
   useEffect(() => {
     const params = {};
     if (statusFilter) params.status = statusFilter;
-    api.get(`/volunteers/events?${new URLSearchParams(params)}`).then(r => {
+    api.get(`/events?${new URLSearchParams(params)}`).then(r => {
       setEvents(r.data.data || []);
       setLoading(false);
     }).catch(() => setLoading(false));
@@ -23,7 +23,7 @@ const EventsPage = () => {
 
   const registerForEvent = async (eventId) => {
     try {
-      await api.post(`/volunteers/events/${eventId}/register`);
+      await api.post(`/events/${eventId}/register`);
       toast.success('Registered for event!');
       setEvents(prev => prev.map(e => e.id === eventId ? { ...e, participants: [...e.participants, user?.id] } : e));
     } catch (e) {
@@ -73,7 +73,7 @@ const EventsPage = () => {
                     <div className="flex items-center gap-2"><FiCalendar className="w-3.5 h-3.5" /> {new Date(e.date).toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}</div>
                     <div className="flex items-center gap-2"><FiMapPin className="w-3.5 h-3.5" /> {e.location}</div>
                     <div className="flex items-center gap-2"><FiUsers className="w-3.5 h-3.5" /> {e.participants?.length || 0} / {e.maxParticipants} registered</div>
-                    <div className="flex items-center gap-2"><FiAward className="w-3.5 h-3.5 text-gold-500" /> {e.rewards} reward points</div>
+                    {e.district && <div className="flex items-center gap-2"><FiMapPin className="w-3.5 h-3.5" /> {e.district}</div>}
                   </div>
                   {e.status === 'upcoming' && (
                     isRegistered ? (

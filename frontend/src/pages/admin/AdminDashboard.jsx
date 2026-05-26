@@ -126,24 +126,20 @@ const AdminDashboard = () => {
           )}
         </div>
 
-        {/* Top Volunteers */}
+        {/* Upcoming Events */}
         <div className="card p-5">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="font-semibold text-dark-800 dark:text-white text-sm">Top Volunteers</h3>
-            <Link to="/admin/volunteers" className="text-xs text-primary-600 hover:underline" id="view-all-volunteers">View all</Link>
+            <h3 className="font-semibold text-dark-800 dark:text-white text-sm">Upcoming Events</h3>
+            <Link to="/admin/events" className="text-xs text-primary-600 hover:underline">Manage</Link>
           </div>
           {loading ? <div className="space-y-3">{[1,2,3].map(i => <Skeleton key={i} className="h-10 w-full" />)}</div> : (
             <div className="space-y-3">
-              {(stats?.topVolunteers || []).map((v, i) => (
-                <div key={v.id} className="flex items-center gap-3 py-2 border-b border-gray-100 dark:border-dark-700 last:border-0">
-                  <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${i === 0 ? 'bg-gold-500 text-dark-900' : i === 1 ? 'bg-gray-300 text-dark-700' : 'bg-orange-400 text-white'}`}>
-                    {i + 1}
-                  </span>
+              {(stats?.upcomingEvents || []).map((e) => (
+                <div key={e.id} className="flex items-center gap-3 py-2 border-b border-gray-100 dark:border-dark-700 last:border-0">
                   <div className="flex-1">
-                    <p className="text-sm font-medium text-dark-700 dark:text-dark-200">{v.name}</p>
-                    <p className="text-xs text-dark-400">{v.district}</p>
+                    <p className="text-sm font-medium text-dark-700 dark:text-dark-200">{e.title}</p>
+                    <p className="text-xs text-dark-400">{e.district} • {new Date(e.date).toLocaleDateString('en-IN')}</p>
                   </div>
-                  <span className="text-sm font-bold text-gold-500">{v.points} pts</span>
                 </div>
               ))}
             </div>

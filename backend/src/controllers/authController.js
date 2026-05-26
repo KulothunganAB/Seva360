@@ -25,7 +25,7 @@ const register = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 12);
     
     // Prevent self-assigning admin role
-    const safeRole = ['citizen', 'volunteer'].includes(role) ? role : 'citizen';
+    const safeRole = role === 'citizen' ? 'citizen' : 'citizen';
     
     const user = create(usersDb, 'users', {
       name,
@@ -39,8 +39,6 @@ const register = async (req, res) => {
       isActive: true,
       isSuspended: false,
       avatar: '',
-      volunteerPoints: 0,
-      membershipQR: '',
       lastLogin: null,
     });
     

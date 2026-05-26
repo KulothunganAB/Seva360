@@ -1,8 +1,9 @@
 const {
-  usersDb, complaintsDb, worksDb, volunteersDb,
+  usersDb, complaintsDb, worksDb,
   donationsDb, eventsDb, charityRequestsDb, announcementsDb, notificationsDb
 } = require('../database/db');
 const { create, getById, getAll, update, remove, getOneBy } = require('../utils/crud');
+const { filterByUserDistrict } = require('../utils/district');
 const response = require('../utils/response');
 
 /**
@@ -11,12 +12,18 @@ const response = require('../utils/response');
 const getDashboardStats = (req, res) => {
   try {
     const users = getAll(usersDb, 'users');
-    const complaints = getAll(complaintsDb, 'complaints');
-    const works = getAll(worksDb, 'works');
-    const volunteers = getAll(volunteersDb, 'volunteers');
+    let complaints = getAll(complaintsDb, 'complaints');
+    let works = getAll(worksDb, 'works');
     const donations = getAll(donationsDb, 'donations');
-    const events = getAll(eventsDb, 'events');
-    const campaigns = getAll(charityRequestsDb, 'charityRequests');
+    let events = getAll(eventsDb, 'events');
+    let campaigns = getAll(charityRequestsDb, 'charityRequests');
+
+    if (req.user?.role === 'admin') {
+      complaints = filterByUserDistrict(complaints, req.user);
+      works = filterByUserDistrict(works, req.user);
+      events = filterByUserDistrict(events, req.user);
+      campaigns = filterByUserDistrict(campaigns, req.user);
+    }
     
     const now = new Date();
     const last30Days = new Date(now - 30 * 24 * 60 * 60 * 1000);
@@ -59,8 +66,8 @@ const getDashboardStats = (req, res) => {
       overview: {
         totalUsers: users.length,
         totalCitizens: users.filter(u => u.role === 'citizen').length,
-        totalVolunteers: volunteers.filter(v => v.status === 'approved').length,
-        totalCouncillors: users.filter(u => u.role === 'councillor').length,
+        totalAdmins: users.filter(u => u.role === 'admin').length,
+        district: req.user?.district || 'All',
         totalComplaints: complaints.length,
         openComplaints: complaints.filter(c => c.status === 'open').length,
         resolvedComplaints: complaints.filter(c => c.status === 'resolved').length,
@@ -77,7 +84,7 @@ const getDashboardStats = (req, res) => {
       worksByStatus,
       recentComplaints: complaints.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 5),
       recentWorks: works.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 5),
-      topVolunteers: getAll(volunteersDb, 'volunteers').sort((a, b) => b.points - a.points).slice(0, 5),
+      upcomingEvents: events.filter(e => e.status === 'upcoming').slice(0, 5),
       recentDonations: donations.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 5),
     });
   } catch (err) {

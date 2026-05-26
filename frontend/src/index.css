@@ -8,26 +8,26 @@
    CSS CUSTOM PROPERTIES (TOKENS)
    ============================================ */
 :root {
-  --color-primary: #B91C1C;
-  --color-primary-light: #DC2626;
-  --color-primary-dark: #991B1B;
+  --color-primary: #2563EB;
+  --color-primary-light: #3B82F6;
+  --color-primary-dark: #1D4ED8;
   --color-gold: #F59E0B;
   --color-gold-light: #FCD34D;
   --color-bg: #FFFFFF;
-  --color-bg-secondary: #F8FAFC;
+  --color-bg-secondary: #F0F7FF;
   --color-text: #0F172A;
   --color-text-muted: #475569;
-  --color-border: #E2E8F0;
+  --color-border: #DBEAFE;
   --color-card: #FFFFFF;
-  --color-card-hover: #F8FAFC;
-  --color-sidebar: #0F172A;
-  --color-sidebar-text: #CBD5E1;
+  --color-card-hover: #EFF6FF;
+  --color-sidebar: #1E40AF;
+  --color-sidebar-text: #DBEAFE;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-  --shadow-glow: 0 0 20px rgba(185, 28, 28, 0.3);
+  --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.3);
   --radius: 0.75rem;
   --radius-sm: 0.375rem;
   --radius-lg: 1rem;
@@ -36,13 +36,14 @@
 }
 
 .dark {
-  --color-bg: #0F172A;
-  --color-bg-secondary: #1E293B;
+  --color-bg: #000000;
+  --color-bg-secondary: #0A1628;
   --color-text: #F1F5F9;
   --color-text-muted: #94A3B8;
-  --color-border: #334155;
-  --color-card: #1E293B;
-  --color-card-hover: #334155;
+  --color-border: #1E3A5F;
+  --color-card: #0A1628;
+  --color-card-hover: #132744;
+  --color-sidebar: #000000;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
@@ -88,7 +89,7 @@ body {
 
 /* Selection */
 ::selection {
-  background: rgba(185, 28, 28, 0.2);
+  background: rgba(37, 99, 235, 0.2);
   color: var(--color-primary);
 }
 
@@ -237,13 +238,13 @@ body {
 
 /* Sidebar */
 .sidebar {
-  @apply fixed left-0 top-0 h-full w-64 bg-dark-900 dark:bg-dark-950 shadow-xl z-40 flex flex-col;
+  @apply fixed left-0 top-0 h-full w-64 bg-primary-900 dark:bg-black shadow-xl z-40 flex flex-col border-r border-primary-800 dark:border-primary-900;
 }
 .sidebar-link {
-  @apply flex items-center gap-3 px-4 py-2.5 rounded-lg text-dark-300 hover:bg-dark-800 hover:text-white transition-all duration-200 text-sm font-medium;
+  @apply flex items-center gap-3 px-4 py-2.5 rounded-lg text-blue-100 hover:bg-primary-800 hover:text-white transition-all duration-200 text-sm font-medium;
 }
 .sidebar-link.active {
-  @apply bg-primary-700 text-white shadow-lg;
+  @apply bg-white text-primary-800 shadow-lg dark:bg-primary-600 dark:text-white;
 }
 
 /* Avatar */
@@ -312,7 +313,10 @@ body {
 
 /* Hero gradient */
 .hero-gradient {
-  background: linear-gradient(135deg, #7f1d1d 0%, #b91c1c 30%, #1e293b 70%, #0f172a 100%);
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 35%, #ffffff 65%, #eff6ff 100%);
+}
+.dark .hero-gradient {
+  background: linear-gradient(135deg, #000000 0%, #0a1628 40%, #1e40af 80%, #2563eb 100%);
 }
 
 /* Gradient text */

@@ -73,8 +73,9 @@ const createWork = (req, res) => {
       images,
       latitude: latitude || null,
       longitude: longitude || null,
-      councillorId: req.user.id,
-      councillorName: req.user.name,
+      adminId: req.user.id,
+      adminName: req.user.name,
+      district: req.user.district || req.body.district || 'Chennai',
       timeline: [
         {
           id: uuidv4(),
@@ -103,7 +104,7 @@ const updateWork = (req, res) => {
     const work = getById(worksDb, 'works', workId);
     if (!work) return response.notFound(res, 'Work not found');
     
-    if (req.user.role === 'councillor' && work.councillorId !== req.user.id) {
+    if (req.user.role === 'admin' && work.adminId && work.adminId !== req.user.id && work.district !== req.user.district) {
       return response.forbidden(res);
     }
     

@@ -4,14 +4,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FiBell, FiMenu, FiSun, FiMoon, FiUser, FiLogOut, 
-  FiSettings, FiSearch, FiX, FiChevronDown
+  FiSettings, FiSearch, FiX, FiChevronDown, FiGlobe
 } from 'react-icons/fi';
+import { useTranslation } from 'react-i18next';
+import { setLanguage } from '../../i18n';
 import { logout } from '../../store/slices/authSlice';
 import { toggleTheme, toggleSidebar, markNotificationRead } from '../../store/slices/uiSlice';
 import { Avatar } from '../ui';
 import api from '../../services/api';
 
 const Navbar = () => {
+  const { i18n } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector(state => state.auth);
@@ -47,21 +50,17 @@ const Navbar = () => {
   };
   
   const roleColors = {
-    admin: 'from-purple-600 to-purple-800',
-    councillor: 'from-blue-600 to-blue-800',
-    citizen: 'from-green-600 to-green-800',
-    volunteer: 'from-orange-500 to-orange-700',
+    admin: 'from-primary-600 to-primary-800',
+    citizen: 'from-blue-500 to-blue-700',
   };
   
   const roleLabel = {
-    admin: 'Super Admin',
-    councillor: 'Councillor',
+    admin: 'District Admin',
     citizen: 'Citizen',
-    volunteer: 'Volunteer',
   };
   
   return (
-    <header className="h-16 bg-white dark:bg-dark-900 border-b border-gray-100 dark:border-dark-800 flex items-center px-4 gap-4 sticky top-0 z-30 shadow-sm">
+    <header className="h-16 bg-white dark:bg-black border-b border-gray-100 dark:border-primary-900 flex items-center px-4 gap-4 sticky top-0 z-30 shadow-sm">
       {/* Hamburger */}
       <button
         onClick={() => dispatch(toggleSidebar())}
@@ -101,7 +100,16 @@ const Navbar = () => {
           {showSearch ? <FiX /> : <FiSearch />}
         </button>
         
-        {/* Theme toggle */}
+        <button
+          onClick={() => setLanguage(i18n.language === 'ta' ? 'en' : 'ta')}
+          className="btn btn-ghost p-2 text-xs font-medium"
+          id="lang-toggle-nav"
+          title="Language"
+        >
+          <FiGlobe className="w-4 h-4" />
+          <span className="hidden sm:inline">{i18n.language === 'ta' ? 'EN' : 'தமிழ்'}</span>
+        </button>
+
         <button
           onClick={() => dispatch(toggleTheme())}
           className="btn btn-ghost p-2"

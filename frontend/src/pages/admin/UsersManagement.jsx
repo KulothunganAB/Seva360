@@ -5,7 +5,7 @@ import { StatusBadge, Pagination, EmptyState, Avatar } from '../../components/ui
 import api from '../../services/api';
 import toast from 'react-hot-toast';
 
-const ROLES = ['', 'citizen', 'volunteer', 'councillor', 'admin'];
+const ROLES = ['', 'citizen', 'admin'];
 
 const UsersManagement = () => {
   const [users, setUsers] = useState([]);
@@ -45,7 +45,7 @@ const UsersManagement = () => {
     } catch { toast.error('Failed to update role'); }
   };
 
-  const roleColors = { admin: 'badge-primary', councillor: 'badge-info', citizen: 'badge-success', volunteer: 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400' };
+  const roleColors = { admin: 'badge-primary', citizen: 'badge-success' };
 
   return (
     <div className="animate-fade-in space-y-5">
@@ -108,7 +108,7 @@ const UsersManagement = () => {
                       value={u.role}
                       onChange={e => updateRole(u.id, e.target.value)}
                     >
-                      {['citizen', 'volunteer', 'councillor', 'admin'].map(r => <option key={r} value={r}>{r}</option>)}
+                      {['citizen', 'admin'].map(r => <option key={r} value={r}>{r}</option>)}
                     </select>
                   </td>
                   <td className="text-sm text-dark-500">{u.district || '—'}</td>

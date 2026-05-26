@@ -17,7 +17,7 @@ const CitizenDashboard = () => {
     Promise.all([
       api.get('/complaints?limit=5'),
       api.get('/works?limit=5&status=in-progress'),
-      api.get('/volunteers/events?limit=3&status=upcoming'),
+      api.get('/events?limit=3&status=upcoming'),
     ]).then(([cr, wr, er]) => {
       setMyComplaints(cr.data.data || []);
       setRecentWorks(wr.data.data || []);

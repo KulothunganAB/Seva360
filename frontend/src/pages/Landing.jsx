@@ -17,14 +17,14 @@ const stagger = {
 const STATS = [
   { label: 'Complaints Resolved', value: 1240, suffix: '+', icon: FiAlertCircle, color: 'text-green-400' },
   { label: 'Works Completed', value: 89, suffix: '', icon: FiTool, color: 'text-blue-400' },
-  { label: 'Active Volunteers', value: 540, suffix: '+', icon: FiUsers, color: 'text-orange-400' },
+  { label: 'Districts Covered', value: 5, suffix: '', icon: FiUsers, color: 'text-primary-400' },
   { label: 'Donations Raised (₹)', value: 1850000, prefix: '₹', suffix: '', icon: FiHeart, color: 'text-red-400' },
 ];
 
 const FEATURES = [
   { icon: FiAlertCircle, title: 'Citizen Grievance Portal', desc: 'Submit, track and resolve complaints about roads, water, sanitation and more with real-time status updates.', color: 'from-red-500 to-red-700' },
   { icon: FiTool, title: 'Public Works Tracker', desc: 'Monitor ongoing infrastructure projects in your ward — roads, parks, drainage — with progress updates and budgets.', color: 'from-blue-500 to-blue-700' },
-  { icon: FiUsers, title: 'Volunteer System (Singapadai)', desc: 'Join district volunteer groups, attend events, earn reward points, and get your QR membership card.', color: 'from-orange-500 to-orange-700' },
+  { icon: FiUsers, title: 'District-Wise Governance', desc: 'Separate admins and citizens per district — Chennai, Coimbatore, Madurai, Trichy and Salem.', color: 'from-primary-500 to-primary-700' },
   { icon: FiHeart, title: 'Charity & Welfare', desc: 'Blood donation, scholarship assistance, food distribution and disaster relief — all in one transparent platform.', color: 'from-pink-500 to-pink-700' },
   { icon: FiCalendar, title: 'Event Management', desc: 'Discover and register for community events, health camps, cleanups and awareness drives near you.', color: 'from-purple-500 to-purple-700' },
   { icon: FiMapPin, title: 'Ward Map & Geo Tracking', desc: 'View complaint hotspots, ongoing works and events on an interactive map of your ward and district.', color: 'from-green-500 to-green-700' },
@@ -32,14 +32,14 @@ const FEATURES = [
 
 const TESTIMONIALS = [
   { name: 'Priya Lakshmi', role: 'Citizen, Adyar', text: 'My road repair complaint was resolved in just 5 days! Seva360 made it so easy to track everything.', rating: 5 },
-  { name: 'Kavitha Raman', role: 'Volunteer, Chennai', text: 'The QR membership card and points system keeps me motivated. I love how organized our volunteer group is now.', rating: 5 },
+  { name: 'District Admin', role: 'Chennai', text: 'Managing events and charity for my district is simple. Citizens see only what matters to them locally.', rating: 5 },
   { name: 'Arjun Murugan', role: 'Citizen, T Nagar', text: 'Finally a platform where I can see exactly where the ward budget is spent. Transparency at its best!', rating: 5 },
 ];
 
 const FAQS = [
   { q: 'How do I file a complaint?', a: 'Register as a Citizen, go to "File Complaint", fill in the category, description, and location. You\'ll get a ticket number instantly.' },
-  { q: 'Who handles my complaints?', a: 'Complaints are assigned to the Ward Councillor based on your location. The admin monitors resolution timelines.' },
-  { q: 'How do I become a Singapadai Volunteer?', a: 'Register with the Volunteer role, fill your skills and availability, and submit. Admin approval is required. Upon approval, you get a QR membership card.' },
+  { q: 'Who handles my complaints?', a: 'Your district admin reviews and assigns complaints within your district. Track status in real time.' },
+  { q: 'How do district admins work?', a: 'Each district has its own admin account. Admins manage complaints, events, and charity only for their district.' },
   { q: 'Is Seva360 affiliated with the government?', a: 'Seva360 is a civic-tech platform designed to bridge citizens and elected representatives. It works as a governance accountability tool.' },
   { q: 'Can I donate to charity campaigns?', a: 'Yes! Visit the Charity section, choose a campaign, and donate. All donations are tracked transparently on the platform.' },
 ];
@@ -70,7 +70,7 @@ const Landing = () => {
           <div className="hidden md:flex items-center gap-6 text-sm">
             <a href="#features" className="text-dark-300 hover:text-white transition-colors">Features</a>
             <a href="#impact" className="text-dark-300 hover:text-white transition-colors">Impact</a>
-            <a href="#volunteer" className="text-dark-300 hover:text-white transition-colors">Volunteer</a>
+            <a href="#districts" className="text-dark-300 hover:text-white transition-colors">Districts</a>
             <a href="#faq" className="text-dark-300 hover:text-white transition-colors">FAQ</a>
             <Link to="/login" className="btn btn-outline border-primary-600 text-primary-400 hover:bg-primary-700 hover:text-white px-4 py-2 text-sm">Login</Link>
             <Link to="/register" className="btn btn-primary px-4 py-2 text-sm" id="hero-register-btn">Register</Link>
@@ -81,7 +81,7 @@ const Landing = () => {
         </div>
         {mobileMenu && (
           <div className="md:hidden bg-dark-900 border-t border-dark-800 px-4 py-4 space-y-3">
-            {['features', 'impact', 'volunteer', 'faq'].map(s => (
+            {['features', 'impact', 'districts', 'faq'].map(s => (
               <a key={s} href={`#${s}`} className="block text-dark-300 hover:text-white capitalize py-1" onClick={() => setMobileMenu(false)}>{s}</a>
             ))}
             <div className="flex gap-3 pt-2">
@@ -115,7 +115,7 @@ const Landing = () => {
               Smart Governance • Public Service • Citizen Engagement
             </motion.p>
             <motion.p variants={fadeUp} className="text-dark-400 text-base max-w-xl mx-auto mb-10">
-              File complaints, track public works, join as a volunteer, and contribute to your community — all in one platform.
+              File complaints, track public works, join events and support charity — district by district across Tamil Nadu.
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/register" className="btn btn-primary btn-lg shadow-lg shadow-primary-900/40 hover:shadow-primary-900/60 text-base" id="hero-cta-register">
@@ -145,7 +145,7 @@ const Landing = () => {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center mb-16">
             <motion.p variants={fadeUp} className="text-primary-400 text-sm font-semibold uppercase tracking-wider mb-3">Platform Features</motion.p>
             <motion.h2 variants={fadeUp} className="section-title text-white">Everything You Need</motion.h2>
-            <motion.p variants={fadeUp} className="section-subtitle">A complete governance ecosystem for citizens, councillors, volunteers and administrators.</motion.p>
+            <motion.p variants={fadeUp} className="section-subtitle">A complete governance ecosystem for citizens and district administrators.</motion.p>
           </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {FEATURES.map((f, i) => {
@@ -188,32 +188,33 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* Volunteer Section */}
-      <section id="volunteer" className="section bg-gradient-to-br from-dark-900 to-primary-950">
+      {/* Districts Section */}
+      <section id="districts" className="section bg-gradient-to-br from-primary-950 to-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
-              <motion.p variants={fadeUp} className="text-orange-400 text-sm font-semibold uppercase tracking-wider mb-3">Singapadai Volunteers</motion.p>
-              <motion.h2 variants={fadeUp} className="section-title text-white mb-4">Be The Change Your Community Needs</motion.h2>
-              <motion.p variants={fadeUp} className="text-dark-300 mb-6">Join the Singapadai volunteer network. Participate in events, earn reward points, get your QR membership card and make a real difference.</motion.p>
+              <motion.p variants={fadeUp} className="text-primary-300 text-sm font-semibold uppercase tracking-wider mb-3">மாவட்ட அடிப்படையில் / District-Wise</motion.p>
+              <motion.h2 variants={fadeUp} className="section-title text-white mb-4">Your District, Your Admin</motion.h2>
+              <motion.p variants={fadeUp} className="text-blue-200 mb-6">Citizens and admins are separated by district. Each district admin manages complaints, events, and charity for their area only.</motion.p>
               <motion.ul variants={stagger} className="space-y-3 mb-8">
-                {['QR Membership Identity Card', 'Reward Points & Badges', 'District Group Chat & Tasks', 'Attendance Tracking System', 'Event Registration & Reminders'].map((item, i) => (
-                  <motion.li key={i} variants={fadeUp} className="flex items-center gap-3 text-dark-300 text-sm">
-                    <span className="w-5 h-5 bg-orange-500/20 border border-orange-500/40 rounded-full flex items-center justify-center text-orange-400 text-xs flex-shrink-0">✓</span>
+                {['Chennai', 'Coimbatore', 'Madurai', 'Tiruchirappalli', 'Salem'].map((item, i) => (
+                  <motion.li key={i} variants={fadeUp} className="flex items-center gap-3 text-blue-100 text-sm">
+                    <span className="w-5 h-5 bg-primary-500/30 border border-primary-400/40 rounded-full flex items-center justify-center text-primary-200 text-xs flex-shrink-0">✓</span>
                     {item}
                   </motion.li>
                 ))}
               </motion.ul>
-              <motion.div variants={fadeUp}>
-                <Link to="/register" className="btn btn-primary btn-lg" id="volunteer-join-btn">Join as Volunteer <FiArrowRight /></Link>
+              <motion.div variants={fadeUp} className="flex gap-3">
+                <Link to="/register" className="btn btn-primary btn-lg">Register as Citizen <FiArrowRight /></Link>
+                <Link to="/login" className="btn btn-outline border-primary-400 text-primary-200 btn-lg">Admin Login</Link>
               </motion.div>
             </motion.div>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="grid grid-cols-2 gap-4">
-              {[{ emoji: '🏅', v: '540+', l: 'Volunteers' }, { emoji: '⭐', v: '2.4K', l: 'Events Done' }, { emoji: '🎁', v: '18K+', l: 'Points Awarded' }, { emoji: '🏆', v: '95%', l: 'Satisfaction' }].map((s, i) => (
+              {[{ emoji: '📍', v: '30+', l: 'Map Markers' }, { emoji: '📅', v: '15', l: 'Events' }, { emoji: '❤️', v: '10', l: 'Charity Drives' }, { emoji: '📋', v: '30', l: 'Complaints' }].map((s, i) => (
                 <div key={i} className="glass-card p-6 text-center">
                   <div className="text-3xl mb-2">{s.emoji}</div>
                   <div className="text-2xl font-bold text-white font-poppins">{s.v}</div>
-                  <div className="text-dark-400 text-xs mt-1">{s.l}</div>
+                  <div className="text-blue-300 text-xs mt-1">{s.l}</div>
                 </div>
               ))}
             </motion.div>
@@ -297,7 +298,7 @@ const Landing = () => {
         <div className="absolute inset-0 bg-hero-pattern opacity-20" />
         <div className="relative max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-white font-poppins mb-4">Ready to Transform Your Community?</h2>
-          <p className="text-primary-200 mb-8">Join thousands of citizens, volunteers and leaders making Tamil Nadu better, one ward at a time.</p>
+          <p className="text-primary-200 mb-8">Join citizens and district admins making Tamil Nadu better, one district at a time.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/register" className="btn btn-gold btn-lg" id="cta-register">Register Now <FiArrowRight /></Link>
             <Link to="/login" className="btn btn-lg border-2 border-white/40 text-white hover:bg-white/10">Sign In</Link>
